@@ -10,5 +10,6 @@ namespace DatingApp.API.Data
 
         //This is property represents a table in database
         public DbSet<Value> Values { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
