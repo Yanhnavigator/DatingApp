@@ -32,10 +32,11 @@ namespace DatingApp.API
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //Section2, Lecture 16
             services.AddCors();
-            //Section3,Leture28
+            //Section3,Lecture28
             services.AddScoped<IAuthRepository, AuthRepository>();
-            //Section3,Leture34
+            //Section3,Lecture34
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -62,6 +63,7 @@ namespace DatingApp.API
             }
 
             //app.UseHttpsRedirection();
+            //Section2, Lecture 16
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             //Section3, Lecture34
             app.UseAuthentication();
